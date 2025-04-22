@@ -14,22 +14,28 @@ const port = process.env.PORT || 3000;
 connectDb();
 connectCloudinary();
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://hautehue.netlify.app', // Allow only this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,  // Allow credentials (cookies, headers)
+  optionsSuccessStatus: 200, // For older browsers
+};
+
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));  // Apply CORS middleware with custom options
 
-// API Endpoints 
+// API Endpoints
 app.use('/api/user', userRouter);
 app.use('/api/product', productRoute);
-app.use('/api/cart', cartRouter)
-app.use('/api/order', orderRouter)
+app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
 
+app.get('/', (req, res) => {
+  res.send('Server is working');
+});
 
-
-app.get('/', (req,res) =>{
-    res.send('Server is working');
-})
-
-app.listen(port, () =>{
-    console.log(`Server is running on port: ${port}`);
-})
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
+});
