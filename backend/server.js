@@ -16,10 +16,21 @@ connectCloudinary();
 
 // CORS configuration
 const corsOptions = {
-  origin: 'https://hautehue.netlify.app', // Allow only this origin
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'https://hautehue.netlify.app',         // First allowed origin
+      'https://hautehueadmin.netlify.app',    // Second allowed origin
+    ];
+
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);  // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS'));  // Block the origin
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,  // Allow credentials (cookies, headers)
-  optionsSuccessStatus: 200, // For older browsers
+  optionsSuccessStatus: 200,  // For older browsers
 };
 
 // Middlewares
