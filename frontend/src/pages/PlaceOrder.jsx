@@ -5,7 +5,9 @@ import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { backUrl } from '../../../admin/src/App'
+
+const backUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState('cod');
