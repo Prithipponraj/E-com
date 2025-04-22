@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parata&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global base font */
+* {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Set universal background to luxury light tan */
+body {
+  background-color: #faf0e4;
+  color: #333;
+}
+
+/* Handle dark mode globally */
+.dark body {
+  background-color: #121212;
+  color: #e5e5e5;
+}
+
+/* Headings - Luxury serif look */
+.playfair {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+/* Elegant brand name */
+.parata {
+  font-family: 'Parata', sans-serif;
+  font-weight: normal;
+}
+
+/* Luxury script option (for quotes or highlights) */
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+/* Utility font class */
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Active link style */
+a.active hr {
+  display: block;
+  border-color: #b88e6a; /* warm gold tone */
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Mobile nav active item */
+@media (max-width: 640px) {
+  a.active {
+    background-color: #4b3a2f; /* rich brown */
+    color: white;
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+}
+
+/* Optional: Smooth fade-in for all page sections */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
